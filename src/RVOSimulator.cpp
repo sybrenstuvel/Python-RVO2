@@ -57,7 +57,6 @@ namespace RVO {
 		defaultAgent_->radius_ = radius;
 		defaultAgent_->timeHorizon_ = timeHorizon;
 		defaultAgent_->timeHorizonObst_ = timeHorizonObst;
-		defaultAgent_->timeHorizonObst_ = timeHorizonObst;
 		defaultAgent_->velocity_ = velocity;
 	}
 
