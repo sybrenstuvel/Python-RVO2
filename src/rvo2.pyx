@@ -48,6 +48,7 @@ cdef extern from "RVOSimulator.h" namespace "RVO":
         float getAgentRadius(size_t agentNo) const
         float getAgentTimeHorizon(size_t agentNo) const
         float getAgentTimeHorizonObst(size_t agentNo) const
+        float getAgentCollabCoeff(size_t agentNo) const
         const Vector2 & getAgentVelocity(size_t agentNo) const
         float getGlobalTime() const
         size_t getNumAgents() const
@@ -71,6 +72,7 @@ cdef extern from "RVOSimulator.h" namespace "RVO":
         void setAgentRadius(size_t agentNo, float radius)
         void setAgentTimeHorizon(size_t agentNo, float timeHorizon)
         void setAgentTimeHorizonObst(size_t agentNo, float timeHorizonObst)
+        void setAgentCollabCoeff(size_t agentNo, float collabCoeff)
         void setAgentVelocity(size_t agentNo, const Vector2 & velocity)
         void setTimeStep(float timeStep)
 
@@ -157,6 +159,8 @@ cdef class PyRVOSimulator:
         return self.thisptr.getAgentTimeHorizon(agent_no)
     def getAgentTimeHorizonObst(self, size_t agent_no):
         return self.thisptr.getAgentTimeHorizonObst(agent_no)
+    def getAgentCollabCoeff(self, size_t agent_no):
+        return self.thisptr.getAgentCollabCoeff(agent_no)
     def getAgentVelocity(self, size_t agent_no):
         cdef Vector2 velocity = self.thisptr.getAgentVelocity(agent_no)
         return velocity.x(), velocity.y()
@@ -217,6 +221,8 @@ cdef class PyRVOSimulator:
         self.thisptr.setAgentTimeHorizon(agent_no, time_horizon)
     def setAgentTimeHorizonObst(self, size_t agent_no, float timeHorizonObst):
         self.thisptr.setAgentTimeHorizonObst(agent_no, timeHorizonObst)
+    def setAgentCollabCoeff(self, size_t agent_no, float collab_coeff):
+        self.thisptr.setAgentCollabCoeff(agent_no, collab_coeff)
     def setAgentVelocity(self, size_t agent_no, tuple velocity):
         cdef Vector2 c_velocity = Vector2(velocity[0], velocity[1])
         self.thisptr.setAgentVelocity(agent_no, c_velocity)

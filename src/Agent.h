@@ -100,6 +100,7 @@ namespace RVO {
 		float timeHorizon_;
 		float timeHorizonObst_;
 		Vector2 velocity_;
+		float collabCoeff_;
 
 		size_t id_;
 

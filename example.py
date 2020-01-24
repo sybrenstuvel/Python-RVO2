@@ -21,6 +21,9 @@ sim.setAgentPrefVelocity(a1, (-1, 1))
 sim.setAgentPrefVelocity(a2, (-1, -1))
 sim.setAgentPrefVelocity(a3, (1, -1))
 
+# Make agent 0 much less collaborative (nominally does 0.5 of the avoidance)
+sim.setAgentCollabCoeff(a0, 0.1)
+
 print('Simulation has %i agents and %i obstacle vertices in it.' %
       (sim.getNumAgents(), sim.getNumObstacleVertices()))
 

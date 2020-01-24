@@ -36,7 +36,7 @@
 #include "Obstacle.h"
 
 namespace RVO {
-	Agent::Agent(RVOSimulator *sim) : maxNeighbors_(0), maxSpeed_(0.0f), neighborDist_(0.0f), radius_(0.0f), sim_(sim), timeHorizon_(0.0f), timeHorizonObst_(0.0f), id_(0) { }
+	Agent::Agent(RVOSimulator *sim) : maxNeighbors_(0), maxSpeed_(0.0f), neighborDist_(0.0f), radius_(0.0f), sim_(sim), timeHorizon_(0.0f), timeHorizonObst_(0.0f), collabCoeff_(0.5f), id_(0) { }
 
 	void Agent::computeNeighbors()
 	{
@@ -346,7 +346,7 @@ namespace RVO {
 				u = (combinedRadius * invTimeStep - wLength) * unitW;
 			}
 
-			line.point = velocity_ + 0.5f * u;
+			line.point = velocity_  + collabCoeff_ * u;// + 0.0f * u;
 			orcaLines_.push_back(line);
 		}
 
