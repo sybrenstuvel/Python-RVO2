@@ -346,7 +346,7 @@ namespace RVO {
 				u = (combinedRadius * invTimeStep - wLength) * unitW;
 			}
 
-			line.point = velocity_  + collabCoeff_ * u;// + 0.0f * u;
+			line.point = velocity_  + collabCoeff_ * u;
 			orcaLines_.push_back(line);
 		}
 
