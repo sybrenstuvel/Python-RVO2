@@ -13,5 +13,7 @@
 *.a
 
 # Python & Cython-generated files
+*.egg-info/
+__pycache__/
 build/
 src/rvo2.cpp
