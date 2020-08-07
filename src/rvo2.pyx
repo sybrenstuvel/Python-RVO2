@@ -87,6 +87,9 @@ cdef class PyRVOSimulator:
                                         timeHorizon, timeHorizonObst, radius,
                                         maxSpeed, c_velocity)
 
+    def __dealloc__(self):
+        del self.thisptr
+
     def addAgent(self, tuple pos, neighborDist=None,
                  maxNeighbors=None, timeHorizon=None,
                  timeHorizonObst=None, radius=None, maxSpeed=None,
